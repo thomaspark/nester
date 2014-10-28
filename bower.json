@@ -1,0 +1,22 @@
+{
+  "name": "nester",
+  "version": "0.0.1",
+  "authors": [
+    "Thomas Park <thomas@thomaspark.me>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "font-awesome": "~4.2.0",
+    "jquery-ui": "~1.11.2",
+    "purl": "~2.3.1"
+  }
+}

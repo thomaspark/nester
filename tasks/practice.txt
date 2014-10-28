@@ -1,0 +1,24 @@
+Vegetables
+Potatoes
+Carrots
+
+Fruits
+Apple
+Grapes
+
+Meat
+Chicken
+Beef
+Pork
+Fish
+Salmon
+Tuna
+
+Drinks
+Milk
+Orange Juice
+Iced Tea
+Soda
+Coca-Cola
+Diet Coke
+Mountain Dew

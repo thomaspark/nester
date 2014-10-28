@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Nester</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./bower_components/jquery-ui/themes/blitzer/jquery-ui.css">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <section id="toolbar" class="clearfix">
+        <span class="btn submit"><i class="fa fa-check-circle"></i> Submit</span>
+        <span class="btn instructions"><i class="fa fa-question-circle"></i> Instructions</span>
+        <span class="btn outdent"><i class="fa fa-chevron-circle-left"></i> Unindent</span>
+        <span class="btn indent"><i class="fa fa-chevron-circle-right"></i> Indent</span>
+      </section>
+      <section id="code"></section>
+      <section id="instructions-modal" class="modal">
+        <div class="modal-inner">
+          <h1>Indent the lines of code</h1>
+          <div id="instructions"></div>
+          <div class="modal-footer"><span class="btn close">OK</span></div>
+        </div>
+      </section>
+      <section id="score-modal" class="modal">
+        <div class="modal-inner">
+          <h1>Score</h1>
+          <div id="score"></div>
+          <div class="modal-footer"><span class="btn close">OK</span></div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./bower_components/jquery/dist/jquery.js"></script>
+    <script src="./bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="./bower_components/purl/purl.js"></script>
+    <script src="./js/detect-indent.js"></script>
+    <script src="./js/scripts.js"></script>
+  </body>
+</html>

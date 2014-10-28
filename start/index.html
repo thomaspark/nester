@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Nester: Start</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <ul id="tasks">
+      </ul>
+    </div>
+
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/purl/purl.js"></script>
+    <script>
+
+      Array.prototype.shuffle = function() {
+        var input = this;
+         
+        for (var i = input.length-1; i >=0; i--) {
+          var randomIndex = Math.floor(Math.random()*(i+1)); 
+          var itemAtIndex = input[randomIndex]; 
+           
+          input[randomIndex] = input[i]; 
+          input[i] = itemAtIndex;
+        }
+
+        return input;
+      }
+
+      var list = ["practice.txt", "html1.html"];
+      var tasks = ["html2.html", "css.css", "json.json", "js.js", "scm.scm", "lua.lua"].shuffle();
+      tasks = list.concat(tasks);
+
+      tasks.forEach(function(value, index) {
+        var link = $("<a></a>").attr({"href": "../?task=" + value, "target": "_blank"}).text("Task " + (index + 1));
+        link = $("<li></li>").append(link);
+        $("#tasks").append(link);
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  padding: 10px 0;
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.wrapper {
+  min-width: 700px;
+  height: 100%;
+  position: relative;
+}
+
+section {
+  width: 80%;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 0.5em;
+}
+
+.modal-inner {
+  margin: 10% 10%;
+  width: 80%;
+  padding: 2em;
+  background-color: #eee;
+  border-radius: 0.5em;
+  color: #222;
+}
+
+.modal-footer {
+  text-align: center;
+}
+
+#instructions-modal {
+  display: block;
+}
+
+hr {
+  visibility: hidden;
+  margin: 1em 0;
+}
+
+#toolbar {
+  padding: 0 1em;
+  height: 50px;
+  background-color: #282828;
+  border-radius: 0.5em 0.5em 0 0;
+}
+
+.btn {
+  float: left;
+  padding: 0.7em 1.3em 0.7em 1.1em;
+  margin: 0.6em 0.5em 0.5em 0;
+  background-color: #008CBA;
+  border-radius: 0.5em;
+  font-size: 0.8em;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #007BA3;
+}
+
+.btn:active {
+  background-color: #006B8F;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.fa {
+  margin-right: 5px;
+}
+
+.submit {
+  float: right;
+  margin-right: 0;
+}
+
+.close {
+  display: inline-block;
+  float: none;
+  margin-top: 50px;
+}
+
+.instructions {
+  float: right;
+}
+
+#code {
+  height: calc(100% - 50px);
+  padding: 1em 2em;
+  background-color: #333;
+  border-radius: 0 0 0.5em 0.5em;
+  overflow: scroll;
+}
+
+#code > div {
+  white-space: nowrap;
+}
+
+.block,
+.blank {
+  display: inline-block;
+  padding: 0.5em;
+  background-color: #eee;
+  border: 4px solid #333;
+  border-width: 2px 8px;
+  font-family: 'Source Code Pro', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #111;
+  cursor: pointer;
+}
+
+.blank {
+  visibility: hidden;
+}
+
+.ui-selecting,
+.ui-selected {
+  background-color: #A4E7FF;
+}
+
+.tab {
+  position: relative;
+  display: inline-block;
+  width: 1.5em;
+  height: 1em;
+  color: #999;
+}
+
+.tab:after {
+  content: "\00b7";
+  position: absolute;
+  right: 4px;
+  top: 2px;
+}

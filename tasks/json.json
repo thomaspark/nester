@@ -1,0 +1,23 @@
+"name": {
+  "first": "John"
+},
+
+"contact": {
+  "telephone": {
+    "home": "610-555-5555"
+  },
+  "address": {
+    "business": {
+      "street": "456 Chestnut Street"
+    }
+  }
+},
+
+"description": {
+  "height": {
+    "inch": 70
+  },
+  "age": {
+    "years": 22
+  }
+}
