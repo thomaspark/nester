@@ -1,24 +1,24 @@
 Vegetables
-Potatoes
-Carrots
+  Potatoes
+  Carrots
 
 Fruits
-Apple
-Grapes
+  Apple
+  Grapes
 
 Meat
-Chicken
-Beef
-Pork
-Fish
-Salmon
-Tuna
+  Chicken
+  Beef
+  Pork
+  Fish
+    Salmon
+    Tuna
 
 Drinks
-Milk
-Orange Juice
-Iced Tea
-Soda
-Coca-Cola
-Diet Coke
-Mountain Dew
+  Milk
+  Orange Juice
+  Iced Tea
+  Soda
+    Coca-Cola
+    Diet Coke
+    Mountain Dew
