@@ -123,6 +123,7 @@ hr {
 }
 
 #code {
+  position: relative;
   height: calc(100% - 50px);
   padding: 1em 2em;
   background-color: #333;

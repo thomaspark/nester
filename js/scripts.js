@@ -163,7 +163,6 @@
       cursor = $(ui.unselecting).data("line");
     },
     stop: function() {
-      console.log(lassoed);
       if (lassoed.length == 1) {
         anchor = cursor = lassoed.pop();
       } else if (lassoed.length > 1) {
@@ -300,19 +299,21 @@
     var parent = $("#code").outerHeight();
     var height = $(".block").eq(cursor).outerHeight();
     var top = $(".block").eq(cursor).position().top;
+    var offset = height * cursor;
 
-    if (top < height) {
-      $("#code").animate({scrollTop: top});
+    if (top < 0) {
+      $("#code").animate({scrollTop: offset}, 100);
     }
   }
 
   function checkBottom(cursor) {
     var parent = $("#code").outerHeight();
     var height = $(".block").eq(cursor).outerHeight();
-    var bottom = $(".block").eq(cursor).position().top;
+    var top = $(".block").eq(cursor).position().top;
+    var offset = (height* (cursor+5) - parent);
 
-    if (bottom > parent) {
-      $("#code").animate({scrollTop: bottom});
+    if ((top + height) > parent) {
+      $("#code").animate({scrollTop: offset}, 100);
     }
   }
 
