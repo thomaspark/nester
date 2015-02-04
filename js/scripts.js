@@ -230,12 +230,12 @@
             $(".block").eq(cursor).addClass("ui-selected");
             checkTop(cursor);
           } else {
-            anchor = cursor = null;
+            $(".block").eq(cursor).addClass("ui-selected");
           }
         } else {
           $(".block").last().addClass("ui-selected");
           anchor = cursor = $(".block").length - 1;
-          checkTop(cursor);
+          checkBottom(cursor);
         }
       }
     } else if (e.which == 40) {
@@ -265,12 +265,12 @@
             $(".block").eq(cursor).addClass("ui-selected");
             checkBottom(cursor);
           } else {
-            anchor = cursor = null;
+            $(".block").eq(cursor).addClass("ui-selected");
           }
         } else {
           $(".block").first().addClass("ui-selected");
           anchor = cursor = 0;
-          checkBottom(cursor);
+          checkTop(cursor);
         }
       }
     }
