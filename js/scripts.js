@@ -214,10 +214,12 @@
           if (cursor > 0) {
             cursor = cursor - 1;
             $(".block").eq(cursor).addClass("ui-selected");
+            checkTop(cursor);
           }
         } else {
           $(".block").eq(cursor).removeClass("ui-selected");
           cursor = cursor - 1;
+          checkTop(cursor);
         }
       } else {
         if ($(".ui-selected").length) {
@@ -226,12 +228,14 @@
           if (cursor > 0) {
             anchor = cursor = cursor - 1;
             $(".block").eq(cursor).addClass("ui-selected");
+            checkTop(cursor);
           } else {
             anchor = cursor = null;
           }
         } else {
           $(".block").last().addClass("ui-selected");
           anchor = cursor = $(".block").length - 1;
+          checkTop(cursor);
         }
       }
     } else if (e.which == 40) {
@@ -245,10 +249,12 @@
           if (cursor < $(".block").length) {
             cursor = cursor + 1;
             $(".block").eq(cursor).addClass("ui-selected");
+            checkBottom(cursor);
           }
         } else {
           $(".block").eq(cursor).removeClass("ui-selected");
           cursor = cursor + 1;
+          checkTop(cursor);
         }
       } else {
         if ($(".ui-selected").length) {
@@ -257,12 +263,14 @@
           if (cursor < $(".block").length - 1) {
             anchor = cursor = cursor + 1;
             $(".block").eq(cursor).addClass("ui-selected");
+            checkBottom(cursor);
           } else {
             anchor = cursor = null;
           }
         } else {
           $(".block").first().addClass("ui-selected");
           anchor = cursor = 0;
+          checkBottom(cursor);
         }
       }
     }
@@ -286,6 +294,26 @@
         $(this).prev().remove();
       }
     });
+  }
+
+  function checkTop(cursor) {
+    var parent = $("#code").outerHeight();
+    var height = $(".block").eq(cursor).outerHeight();
+    var top = $(".block").eq(cursor).position().top;
+
+    if (top < height) {
+      $("#code").animate({scrollTop: top});
+    }
+  }
+
+  function checkBottom(cursor) {
+    var parent = $("#code").outerHeight();
+    var height = $(".block").eq(cursor).outerHeight();
+    var bottom = $(".block").eq(cursor).position().top;
+
+    if (bottom > parent) {
+      $("#code").animate({scrollTop: bottom});
+    }
   }
 
 })();
