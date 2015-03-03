@@ -1,10 +1,12 @@
 (function(){
   var task = $.url().param("task") ? $.url().param("task") : "html1.html";
+  var p = $.url().param("p") ? $.url().param("p") : "test";
   var anchor;
   var cursor;
   var current = $(".ui-selected");
   var lassoed = [];
   var startTime;
+  var attempt = 0;
 
   $.ajax({
     url : "./instructions/" + task.split(".").pop() + ".html",
@@ -86,17 +88,26 @@
   $(".submit").click(function() {
     var total = $(".block").length;
     var missed = 0;
-    var missedLines = [];
     var missedRelative = 0;
-    var missedRelativeLines = [];
-    var level, position, prevLevel, prevPosition;
     var missedDirection = 0;
+    var missedLines = [];
+    var missedRelativeLines = [];
     var missedDirectionLines = [];
+
+    var solution = [];
+    var answer = [];
+
+    var level, position, prevLevel, prevPosition;
     var time = new Date() - startTime;
+
+    attempt = attempt + 1;
 
     $(".block").each(function(index, element) {
       level = $(this).data("level");
       position = $(this).data("position");
+
+      solution.push(level);
+      answer.push(position);
 
       if (position !== level) {
         missed = missed + 1;
@@ -123,20 +134,30 @@
       prevPosition = position;
     });
 
+    var score = 100 * (total - missedDirection - (0.5 * (missedRelative - missedDirection))) / total;
+
+    Parse.initialize("ZnD1UEJA3BdRNhaAJ6awIcbR6CC9TtQ1rwxUYVRh","JkbOI0eiIKdoxmcSTTj5RrpfvvtPwnf8PuOz3VCD");
+
+    var Record = Parse.Object.extend("Record");
+    var record = new Record();
+    record.set('participant', p);
+    record.set('task', task);
+    record.set('lines', total);
+    record.set('time', time/1000);
+    record.set('attempt', attempt);
+    record.set('missed', missedDirection);
+    record.set('solution', solution.toString());
+    record.set('answer', answer.toString());
+    record.save();
+
+
     $("#score").empty();
-    $("#score").append("<div>Absolute score: " + (total - missed) + " out of " + total + "</div>");
-    $("#score").append("<div>Missed lines: " + missedLines.toString() + "</div>");
-    $("#score").append("<hr>");
-    $("#score").append("<div>Relative score: " + (total - missedRelative) + " out of " + total + "</div>");
-    $("#score").append("<div>Missed lines: " + missedRelativeLines.toString() + "</div>");
-    $("#score").append("<hr>");
-    $("#score").append("<div>Polarity score: " + (total - missedDirection) + " out of " + total + "</div>");
-    $("#score").append("<div>Missed lines: " + missedDirectionLines.toString() + "</div>");
-    $("#score").append("<hr>");
-    $("#score").append("<div>Weighted score: " + (total - (missedRelative - missedDirection) - (0.5 * missedDirection)) + " out of " + total + "</div>");
-    $("#score").append("<div>Missed lines: " + missedRelativeLines.toString() + "</div>");
-    $("#score").append("<hr>");
-    $("#score").append("Time: " + time/1000 + " seconds");
+
+    if (missedDirection > 0) {
+      $("#score").append("<h2>You have one or more errors.</h2><p>Find and correct them.</p>");
+    } else {
+      $("#score").append("<h2>You have successfully completed the task.</h2><p>You may now close this tab.</p>");
+    }
 
     $("#score-modal").fadeIn();
   });
