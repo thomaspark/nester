@@ -1,0 +1,34 @@
+body {
+  max-width: 400px;
+  margin: 2em auto 4em;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: #008CBA;
+}
+
+a:hover {
+  color: #007BA3;
+}
+
+a:active {
+ color: #006B8F;
+}
+
+a.clicked {
+  color: #ccc;
+}
+
+h3 {
+  margin-top: 2em;
+}
+
+.logo {
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.logo img {
+  max-width: 100px;
+}
