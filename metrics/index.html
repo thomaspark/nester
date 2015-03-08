@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Nester Metrics</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./bower_components/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="./bower_components/codemirror/theme/monokai.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="toolbar">
+        <div class="btn-group" id="mode">
+          <a class="btn active" id="strict"><i class="fa fa-square"></i> Strict</a>
+          <a class="btn"><i class="fa fa-square"></i> Loose</a>
+        </div>
+        <a class="btn" id="analyze"><i class="fa fa-pie-chart"></i> Analyze</a>
+      </div>
+      <div id="editor"></div>
+      <div id="metrics"></div>
+    </div>
+
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="./bower_components/codemirror/lib/codemirror.js"></script>
+    <script src="./bower_components/codemirror/mode/xml/xml.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

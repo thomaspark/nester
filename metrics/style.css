@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  padding: 10px 0;
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.wrapper {
+  margin: auto;
+  width: 80%;
+  min-width: 700px;
+  height: 100%;
+  position: relative;
+}
+
+#toolbar {
+  padding: 0 1em;
+  height: 50px;
+  background-color: #222;
+  border-radius: 0.5em 0.5em 0 0;
+}
+
+#analyze {
+  float: right;
+}
+
+.btn-group .btn {
+  margin-left: 0;
+  margin-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-group .btn + .btn {
+  border-radius: 0 0.5em 0.5em 0;
+}
+
+.btn {
+  float: left;
+  padding: 0.7em 1.3em 0.7em 1.1em;
+  margin: 0.6em 0.5em 0.5em 0;
+  background-color: #008CBA;
+  border-radius: 0.5em;
+  font-size: 0.8em;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #007BA3;
+}
+
+.btn:active {
+  background-color: #006B8F;
+}
+
+.btn.active i:before {
+  content: "\f14a";
+}
+
+.fa {
+  margin-right: 5px;
+}
+
+#editor {
+  height: calc(100% - 225px);
+}
+
+#metrics {
+  height: 175px;
+  padding: 2em 1em 1em;
+  background-color: #222;
+  border-radius: 0 0 0.5em 0.5em;
+  color: #fff;
+  font-size: 14px;
+}
+
+#metrics p {
+  float: left;
+  width: 20%;
+  text-align: center;
+}
