@@ -21,14 +21,12 @@
   $("#pre").attr("href", pre + p);
   $("#post").attr("href", post + p);
 
-  var langs = ["html", "css", "javascript", "latex", "lua", "scm"];
+  $("#tasks").html("<li><a href='../?task=practice.txt&p=" + p + "'' target='_blank'>Practice</a></li>");
 
-  var list = ["practice.txt", "html1.html"];
-  var tasks = ["html2.html", "navbar.html", "css.css", "json.json", "js.js", "scm.scm", "lua.lua"].shuffle();
-  tasks = list.concat(tasks);
+  var tasks = ["html.html", "css.css", "xml.xml", "scss.scss", "json.json", "js.js", "tex.tex"].shuffle();
 
   tasks.forEach(function(value, index) {
-    var link = $("<a></a>").attr({"href": "../?task=" + value + "&p=" + p, "target": "_blank"}).text("Task " + (index + 1));
+    var link = $("<a></a>").attr({"href": "../?task=" + value + "&p=" + p, "target": "_blank"}).text("Task " + parseInt(index+1));
     link = $("<li></li>").append(link);
     $("#tasks").append(link);
   });

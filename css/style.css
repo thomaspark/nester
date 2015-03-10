@@ -31,40 +31,6 @@ h1 {
   text-align: center;
 }
 
-.modal {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 10%;
-  width: 80%;
-  height: 100%;
-  padding: 6em;
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 0.5em;
-}
-
-.modal-inner {
-  width: 100%;
-  height: 60%;
-  padding: 2em;
-  background-color: #eee;
-  border-radius: 0.5em;
-  color: #222;
-  overflow-y: scroll;
-}
-
-.modal-footer {
-  text-align: center;
-}
-
-#instructions-modal {
-  display: block;
-}
-
-#score {
-  text-align: center;
-} 
-
 hr {
   visibility: hidden;
   margin: 1em 0;
@@ -119,7 +85,6 @@ hr {
 .close {
   display: inline-block;
   float: none;
-  margin-top: 50px;
 }
 
 .instructions {
@@ -175,4 +140,80 @@ hr {
   position: absolute;
   right: 4px;
   top: 2px;
+}
+
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+  padding: 6em;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 0.5em;
+}
+
+.modal-inner {
+  width: 100%;
+  padding: 2em;
+  background-color: #eee;
+  border-radius: 0.5em 0.5em 0 0;
+  color: #222;
+  overflow-y: scroll;
+}
+
+.modal-footer {
+  padding: 2em;
+  background-color: #eee;
+  border-radius: 0 0 0.5em 0.5em;
+  text-align: center;
+}
+
+#instructions-modal {
+  display: block;
+}
+
+#instructions {
+  text-align: center;
+}
+
+#instructions .code {
+  display: inline-block;
+  margin-top: 1em;
+  text-align: left;
+}
+
+#instructions code {
+  display: inline-block;
+  padding: 5px 8px;
+  margin-bottom: 2px;
+  background-color: #ccc;
+  font-family: 'Source Code Pro', sans-serif;
+  font-weight: 600;
+}
+
+#instructions .indent {
+  /*margin-left: 10px;*/
+}
+
+#instructions .indent:before {
+  content: "→";
+  padding-right: 5px;
+  color: #008CBA;
+}
+
+#instructions .indent2 {
+  /*margin-left: 20px;*/
+}
+
+#instructions .indent2:before {
+  content: "→ →";
+  margin-right: 5px;
+  color: #008CBA;
+}
+
+#score {
+  text-align: center;
 }

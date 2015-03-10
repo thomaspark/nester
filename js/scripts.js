@@ -9,7 +9,7 @@
   var attempt = 0;
 
   $.ajax({
-    url : "./instructions/" + task.split(".").pop() + ".html",
+    url : "./study/lang/" + task.split(".").pop() + ".html",
     dataType: "html",
     success : function (data) {
       $("#instructions").html(data);
@@ -17,7 +17,7 @@
   });
 
   $.ajax({
-    url : "./tasks/" + task,
+    url : "./study/tasks/" + task,
     dataType: "text",
     success : function (data) {
       loadBlocks(data);
