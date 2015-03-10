@@ -13,6 +13,7 @@
     dataType: "html",
     success : function (data) {
       $("#instructions").html(data);
+      $("#instructions-modal").fadeIn();
     }
   });
 
