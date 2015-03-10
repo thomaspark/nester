@@ -1,5 +1,5 @@
 (function(){
-  var task = $.url().param("task") ? $.url().param("task") : "html1.html";
+  var task = $.url().param("task") ? $.url().param("task") : "html.html";
   var p = $.url().param("p") ? $.url().param("p") : "test";
   var anchor;
   var cursor;
