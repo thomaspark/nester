@@ -155,9 +155,9 @@
     $("#score").empty();
 
     if (missedDirection > 0) {
-      $("#score").append("<h2>You have one or more errors.</h2><p>Find and correct them.</p>");
+      $("#score").append("<p><i class='fa fa-exclamation-triangle'></i></p><h2>You have one or more errors.</h2><p>Find and correct them.</p>");
     } else {
-      $("#score").append("<h2>You have successfully completed the task.</h2><p>You may now close this tab.</p>");
+      $("#score").append("<p><i class='fa fa-check-circle'></i></p><h2>You have successfully completed the task.</h2><p>You may now close this tab.</p>");
     }
 
     $("#score-modal").fadeIn();

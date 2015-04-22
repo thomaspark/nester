@@ -1,0 +1,35 @@
+<message>
+  <customer>
+    <person>
+      <name>Jane</name>
+      <org>
+        <company>
+          <name>Widget Holdings</name>
+          <address>123 Market Street</address>
+        </company>
+      </org>
+    </person>
+  </customer>
+
+  <date>
+    <year>Apples</year>
+    <month>Carrots</month>
+    <day>Eggs</day>
+    <dayofweek>Milk</dayofweek>
+    <time>
+      <hour>11</hour>
+      <minute>45</minute>
+    </time>
+  </date>
+
+  <orders>
+    <order>
+      <product>Model A</product>
+      <quantity>33</quantity>
+    </order>
+    <order>
+      <product>Model B</product>
+      <quantity>23</quantity>
+    </order>
+  </orders>
+</message>

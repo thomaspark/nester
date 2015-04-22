@@ -171,6 +171,18 @@ hr {
   text-align: center;
 }
 
+.modal .fa {
+  font-size: 50px;
+}
+
+.modal .fa-exclamation-triangle {
+  color: #AD0000;
+}
+
+.modal .fa-check-circle {
+  color: #009400;
+}
+
 #instructions {
   text-align: center;
 }

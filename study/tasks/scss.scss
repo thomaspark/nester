@@ -1,0 +1,36 @@
+.main {
+  
+  h1 {
+    margin: 0;
+    color: #333;
+    font-size: 4em;
+    text-align: center;
+    small {
+      color: #999;
+      font-size: 1em;
+    }
+  }
+
+  .menu {
+    .menu-item {
+      color: blue;
+      li {
+        a {
+          text-align: left;;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  @media () {
+    input {
+      prop;
+      prop;
+    }
+    .btn {
+      prop;
+      prop;
+    }
+  }
+}

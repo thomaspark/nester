@@ -23,10 +23,10 @@
 
   $("#tasks").html("<li><a href='../?task=practice.txt&p=" + p + "'' target='_blank'>Practice</a></li>");
 
-  var tasks = ["html.html", "css.css", "xml.xml", "scss.scss", "json.json", "js.js", "tex.tex"].shuffle();
+  var tasks = ["html.html", "xml.xml", "latex.tex", "scss.scss", "json.json", "js.js", "lisp.lisp"].shuffle();
 
   tasks.forEach(function(value, index) {
-    var link = $("<a></a>").attr({"href": "../?task=" + value + "&p=" + p, "target": "_blank"}).text("Task " + parseInt(index+1));
+    var link = $("<a></a>").attr({"href": "../?task=" + value + "&p=" + p, "target": "_blank"}).text("Task " + parseInt(index+1, 10));
     link = $("<li></li>").append(link);
     $("#tasks").append(link);
   });
