@@ -1,23 +1,37 @@
-"name": {
-  "first": "John"
-},
+{
 
-"contact": {
-  "telephone": {
-    "home": "610-555-5555"
+  "user": {
+    "name": {
+      "first": "Seymour",
+      "last": "Jones"
+    },
+    "info": {
+      "email": "sjones@gmail.com",
+      "twitter": "@sjones"
+    }
   },
-  "address": {
-    "business": {
-      "street": "456 Chestnut Street"
+
+  "settings": {
+    "test": {
+      "alpha": true,
+      "beta": true
+    },
+    "edit": true,
+    "admin": true,
+    "level": 20,
+    "theme": "blue"
+  },
+
+  "contact": {
+    "work": {
+      "nickname": "Work",
+      "id": {
+        "address": {
+          "street": "3400 Market Street",
+          "city": "Philadelphia"
+        }
+      }
     }
   }
-},
 
-"description": {
-  "height": {
-    "inch": 70
-  },
-  "age": {
-    "years": 22
-  }
 }

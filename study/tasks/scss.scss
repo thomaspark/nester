@@ -1,36 +1,37 @@
-.main {
-  
+body {
+
   h1 {
+    a {
+      color: #666;
+      text-decoration: none;
+    }
     margin: 0;
     color: #333;
     font-size: 4em;
     text-align: center;
-    small {
-      color: #999;
-      font-size: 1em;
-    }
   }
 
-  .menu {
+  nav {
     .menu-item {
       color: blue;
       li {
         a {
-          text-align: left;;
+          text-align: left;
           text-decoration: none;
         }
       }
     }
   }
 
-  @media () {
+  @media (max-width: 480px) {
     input {
-      prop;
-      prop;
+      padding: 1em;
+      border: none;
     }
     .btn {
-      prop;
-      prop;
+      border-color: blue;
+      border-radius: 3px;
     }
   }
+
 }

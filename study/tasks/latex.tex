@@ -1,19 +1,20 @@
 \begin{document}
+
   \begin{table}
-    \caption{Table 1}
-    \label{table1}
-    \small
-    \centering
     \begin{tabular}{c c}
       City & State \\
       Philadephia & Pennsylvania \\
     \end{tabular}
+    \caption{Cities}
+    \label{table1}
+    \small
+    \centering
   \end{table}
 
-  \begin{section}
-    \begin{subsection}
+  \begin{section}{Section 1}
+    \begin{subsection}{Subsection 1.1}
       \textbf{Links}
-      \begin{subsubsection}
+      \begin{subsubsection}{Subsubsection 1.1.1}
         \begin{itemize}
           \item Home
           \item Contact
@@ -23,13 +24,14 @@
   \end{section}
 
   \begin{figure}
-    \begin{subfigure}
+    \begin{subfigure}{\linewidth}
       \includegraphics{graph1}
       \caption{Figure 1}
     \end{subfigure}
-    \begin{subfigure}
+    \begin{subfigure}{\linewidth}
       \includegraphics{graph2}
       \caption{Figure 2}
     \end{subfigure}
   \end{figure}
+
 \end{document}

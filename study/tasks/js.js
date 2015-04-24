@@ -1,23 +1,37 @@
-function check(user) {
-  if (user.level >= 1) {
-    return true;
-  }
-  if (user.level < 1) {
-    return false;
-  }
-}
+(function(){
 
-function count(user, history) {
-  if (user.level < 1) {
-    return;
-  }
-  for (var i = 0; i < history.length; i++) {
-    if (history[i] == user.name) {
-      user.history.push(history[i]);
+  function checkStatus(user) {
+    if (user.level >= 2) {
+      status = "admin";
+      return status;
+    }
+    if (user.level < 1) {
+      status = "guest";
+      return status;
     }
   }
-}
 
-if (visits.length === 0) {
-  alert("welcome!");
-}
+  function setPrivs(user) {
+    if (checkStatus(user) === "guest") {
+      privs = null;
+      return;
+    }
+    privs.read = true;
+    privs.write = true;
+    privs.remove = true;
+    privs.execute = true;
+  }
+
+  function outputData(user) {
+    if (user) {
+      var data = user.data;
+      if (data) {
+        for (var d in data) {
+          var output = d + ": " + data[d];
+          console.log(output);
+        }
+      }
+    }
+  }
+
+})();
