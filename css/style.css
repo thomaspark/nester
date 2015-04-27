@@ -11,6 +11,7 @@ body {
   padding: 10px 0;
   background-color: #fff;
   font-family: 'Roboto', sans-serif;
+  overflow: hidden;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
@@ -91,13 +92,17 @@ hr {
   float: right;
 }
 
-#code {
+.code-wrapper {
   position: relative;
   height: calc(100% - 50px);
-  padding: 1em 2em;
   background-color: #333;
   border-radius: 0 0 0.5em 0.5em;
-  overflow: scroll;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
+
+#code {
+  padding: 1em 2em;
 }
 
 #code > div {
@@ -225,3 +230,19 @@ hr {
 #score {
   text-align: center;
 }
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 16px;
+  cursor: pointer;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+
