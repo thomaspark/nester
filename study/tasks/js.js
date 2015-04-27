@@ -1,6 +1,6 @@
-(function(){
+var utilities = {
 
-  function checkStatus(user) {
+  checkStatus: function(user) {
     if (user.level >= 2) {
       status = "admin";
       return status;
@@ -9,9 +9,9 @@
       status = "guest";
       return status;
     }
-  }
+  },
 
-  function setPrivs(user) {
+  setPrivs: function(user) {
     if (checkStatus(user) === "guest") {
       privs = null;
       return;
@@ -20,9 +20,9 @@
     privs.write = true;
     privs.remove = true;
     privs.execute = true;
-  }
+  },
 
-  function outputData(user) {
+  outputData: function(user) {
     if (user) {
       var data = user.data;
       if (data) {
@@ -34,4 +34,4 @@
     }
   }
 
-})();
+};
