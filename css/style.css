@@ -207,7 +207,7 @@ hr {
 }
 
 #instructions .indent:before {
-  content: "→";
+  content: "\2192";
   padding-right: 5px;
   color: #008CBA;
 }
@@ -217,7 +217,7 @@ hr {
 }
 
 #instructions .indent2:before {
-  content: "→ →";
+  content: "\2192  \2192";
   margin-right: 5px;
   color: #008CBA;
 }
