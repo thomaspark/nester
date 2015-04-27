@@ -13,7 +13,7 @@
   
   (set-privs
     (list
-      ((get-id user1)
+      (get-id user1)
       (string "read")
     )
     (list 
