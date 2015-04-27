@@ -228,6 +228,11 @@ hr {
   text-align: center;
 }
 
+.ui-selectable-helper {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 ::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 16px;
@@ -241,5 +246,3 @@ hr {
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
-
-
