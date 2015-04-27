@@ -11,17 +11,6 @@
     }
   },
 
-  "settings": {
-    "test": {
-      "alpha": true,
-      "beta": true
-    },
-    "edit": true,
-    "admin": true,
-    "level": 20,
-    "theme": "blue"
-  },
-
   "contact": {
     "work": {
       "nickname": "Work",
@@ -32,6 +21,17 @@
         }
       }
     }
+  },
+
+  "settings": {
+    "test": {
+      "alpha": true,
+      "beta": true
+    },
+    "edit": true,
+    "admin": true,
+    "level": 20,
+    "theme": "blue"
   }
 
 }

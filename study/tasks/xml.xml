@@ -1,4 +1,16 @@
 <message>
+
+  <date>
+    <time>
+      <hour>11</hour>
+      <minute>45</minute>
+    </time>
+    <year>Apples</year>
+    <month>Carrots</month>
+    <day>Eggs</day>
+    <dayofweek>Milk</dayofweek>
+  </date>
+
   <customer>
     <person>
       <name>Jane</name>
@@ -10,16 +22,7 @@
       </org>
     </person>
   </customer>
-  <date>
-    <time>
-      <hour>11</hour>
-      <minute>45</minute>
-    </time>
-    <year>Apples</year>
-    <month>Carrots</month>
-    <day>Eggs</day>
-    <dayofweek>Milk</dayofweek>
-  </date>
+
   <orders>
     <order>
       <product>Model A</product>
@@ -30,4 +33,5 @@
       <quantity>23</quantity>
     </order>
   </orders>
+
 </message>
