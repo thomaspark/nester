@@ -147,8 +147,8 @@
     record.set('time', time/1000);
     record.set('attempt', attempt);
     record.set('missed', missedDirection);
-    record.set('solution', solution.toString());
-    record.set('answer', answer.toString());
+    record.set('solution', solution);
+    record.set('answer', answer);
     record.save();
 
 
