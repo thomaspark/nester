@@ -428,7 +428,7 @@
     var offset = (height* (cursor+5) - parent);
 
     if ((top + height) > parent) {
-      $("#code").animate({scrollTop: offset}, 100);
+      $("#code").animate({scrollTop: offset+40}, 100);
     }
   }
 
