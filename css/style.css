@@ -163,7 +163,6 @@ hr {
   background-color: #eee;
   border-radius: 0.5em 0.5em 0 0;
   color: #222;
-  overflow-y: scroll;
 }
 
 .modal-footer {
