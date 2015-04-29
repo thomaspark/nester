@@ -91,14 +91,14 @@ hr {
 }
 
 .code-wrapper {
+}
+
+#code {
   position: relative;
   height: calc(100% - 50px);
   background-color: #333;
   overflow-x: auto;
   overflow-y: scroll;
-}
-
-#code {
   padding: 1em 2em;
 }
 
@@ -124,6 +124,8 @@ hr {
   visibility: hidden;
 }
 
+.xselectable-selecting,
+.xselectable-selected,
 .ui-selecting,
 .ui-selected {
   background-color: #A4E7FF;
@@ -227,6 +229,8 @@ hr {
   text-align: center;
 }
 
+
+.xselectable-box,
 .ui-selectable-helper {
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: rgba(255, 255, 255, 0.1);

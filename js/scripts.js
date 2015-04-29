@@ -3,7 +3,7 @@
   var p = $.url().param("p") ? $.url().param("p") : "test";
   var anchor;
   var cursor;
-  var current = $(".ui-selected");
+  var current = $(".xselectable-selected");
   var lassoed = [];
   var startTime;
   var operations = [];
@@ -169,48 +169,38 @@
     $("#score-modal").fadeIn();
   });
 
-  $("#code").selectable({
-    filter: ".block",
-    selecting: function(e, ui) {
+  $("#code").xselectable({
+    filter: ".block"
+  })
+    .bind("xselectableselecting",
+    function(e, ui) {
       lassoed.push($(ui.selecting).data("line"));
 
       if (e.shiftKey && current.length) {
         cursor = $(ui.selecting).data("line");
 
         if (anchor > cursor) {
-          current.addClass("ui-selected");
-          $(".block").slice(cursor, anchor+1).addClass("ui-selected");
+          current.addClass("xselectable-selected");
+          $(".block").slice(cursor, anchor+1).addClass("xselectable-selected");
         } else {
-          current.addClass("ui-selected");
-          $(".block").slice(anchor, cursor+1).addClass("ui-selected");
+          current.addClass("xselectable-selected");
+          $(".block").slice(anchor, cursor+1).addClass("xselectable-selected");
         }
       }
-    },
-    unselecting: function(e, ui) {
+    })
+    .bind("xselectableunselecting",
+    function(e, ui) {
       lassoed.pop();
       cursor = $(ui.unselecting).data("line");
-    },
-    stop: function(e, ui) {
-      if (lassoed.length == 1) {
-        if (e.shiftKey) {
-          operations.push("shift-click");
-        } else if (e.metaKey) {
-          operations.push("command-click");
-        } else if (e.ctrlKey) {
-          operations.push("control-click");
-        } else {
-          operations.push("click");
-        }
+    })
+    .bind("xselectablestop",
+    function(e, ui) {
+      if (e.shiftKey) {
+        operations.push("shift-drag " + lassoed.length);
+      } else if (e.metaKey || e.ctrlKey) {
+        operations.push("control-drag " + lassoed.length);
       } else {
-        if (e.shiftKey) {
-          operations.push("shift-drag " + lassoed.length);
-        } else if (e.metaKey) {
-          operations.push("command-drag " + lassoed.length);
-        } else if (e.ctrlKey) {
-          operations.push("control-drag " + lassoed.length);
-        } else {
         operations.push("drag " + lassoed.length);
-        }
       }
 
       if (lassoed.length == 1) {
@@ -220,8 +210,44 @@
         anchor = lassoed[0];
       }
 
-      current = $(".ui-selected");
+      current = $(".xselectable-selected");
       lassoed = [];
+  });
+
+  $("#code").on("click", function(e, ui) {
+
+    if ($(e.target).hasClass("block")) {
+
+      cursor = $(e.target).data("line");
+
+      if (e.shiftKey && current.length) {
+        operations.push("shift-click");
+
+        if (anchor > cursor) {
+          current.addClass("xselectable-selected");
+          $(".block").slice(cursor, anchor+1).addClass("xselectable-selected");
+        } else {
+          current.addClass("xselectable-selected");
+          $(".block").slice(anchor, cursor+1).addClass("xselectable-selected");
+        }
+      } else if (e.metaKey || e.ctrlKey) {
+        operations.push("control-click");
+
+        $(e.target).toggleClass("xselectable-selected");
+
+      } else {
+        $(".xselectable-selected").removeClass("xselectable-selected");
+        $(e.target).addClass("xselectable-selected");
+        cursor = anchor = $(e.target).data("line");
+        lassoed[0] = cursor;
+        operations.push("click");
+      }
+    } else {
+
+      if (!e.shiftKey && !e.metaKey && !e.ctrlKey) {
+        $(".xselectable-selected").removeClass("xselectable-selected");
+        operations.push("click deselect");
+      }
     }
   });
 
@@ -256,7 +282,7 @@
 
       e.preventDefault();
       cursor = anchor = null;
-      $(".ui-selected").removeClass("ui-selected");
+      $(".xselectable-selected").removeClass("xselectable-selected");
 
       if (e.which == 27) {
         operations.push("key escape");
@@ -271,7 +297,7 @@
       e.preventDefault();
       anchor = 0;
       cursor = $(".block").length - 1;
-      $(".block").addClass("ui-selected");
+      $(".block").addClass("xselectable-selected");
 
       if (e.ctrlKey) {
         operations.push("key control-a");
@@ -282,8 +308,8 @@
       // up arrow
       e.preventDefault();
 
-      first = $(".ui-selected").first().data("line");
-      last = $(".ui-selected").last().data("line");
+      first = $(".xselectable-selected").first().data("line");
+      last = $(".xselectable-selected").last().data("line");
 
       if (e.shiftKey) {
 
@@ -292,11 +318,11 @@
         if (cursor <= anchor) {
           if (cursor > 0) {
             cursor = cursor - 1;
-            $(".block").eq(cursor).addClass("ui-selected");
+            $(".block").eq(cursor).addClass("xselectable-selected");
             checkTop(cursor);
           }
         } else {
-          $(".block").eq(cursor).removeClass("ui-selected");
+          $(".block").eq(cursor).removeClass("xselectable-selected");
           cursor = cursor - 1;
           checkTop(cursor);
         }
@@ -304,18 +330,18 @@
 
         operations.push("key up-arrow");
 
-        if ($(".ui-selected").length) {
-          $(".ui-selected").removeClass("ui-selected");
+        if ($(".xselectable-selected").length) {
+          $(".xselectable-selected").removeClass("xselectable-selected");
 
           if (cursor > 0) {
             anchor = cursor = cursor - 1;
-            $(".block").eq(cursor).addClass("ui-selected");
+            $(".block").eq(cursor).addClass("xselectable-selected");
             checkTop(cursor);
           } else {
-            $(".block").eq(cursor).addClass("ui-selected");
+            $(".block").eq(cursor).addClass("xselectable-selected");
           }
         } else {
-          $(".block").last().addClass("ui-selected");
+          $(".block").last().addClass("xselectable-selected");
           anchor = cursor = $(".block").length - 1;
           checkBottom(cursor);
         }
@@ -324,7 +350,7 @@
       // down arrow
       e.preventDefault();
 
-      last = $(".ui-selected").last().data("line");
+      last = $(".xselectable-selected").last().data("line");
 
       if (e.shiftKey) {
 
@@ -333,11 +359,11 @@
         if (cursor >= anchor) {
           if (cursor < $(".block").length) {
             cursor = cursor + 1;
-            $(".block").eq(cursor).addClass("ui-selected");
+            $(".block").eq(cursor).addClass("xselectable-selected");
             checkBottom(cursor);
           }
         } else {
-          $(".block").eq(cursor).removeClass("ui-selected");
+          $(".block").eq(cursor).removeClass("xselectable-selected");
           cursor = cursor + 1;
           checkTop(cursor);
         }
@@ -345,29 +371,29 @@
 
         operations.push("key down-arrow");
 
-        if ($(".ui-selected").length) {
-          $(".ui-selected").removeClass("ui-selected");
+        if ($(".xselectable-selected").length) {
+          $(".xselectable-selected").removeClass("xselectable-selected");
 
           if (cursor < $(".block").length - 1) {
             anchor = cursor = cursor + 1;
-            $(".block").eq(cursor).addClass("ui-selected");
+            $(".block").eq(cursor).addClass("xselectable-selected");
             checkBottom(cursor);
           } else {
-            $(".block").eq(cursor).addClass("ui-selected");
+            $(".block").eq(cursor).addClass("xselectable-selected");
           }
         } else {
-          $(".block").first().addClass("ui-selected");
+          $(".block").first().addClass("xselectable-selected");
           anchor = cursor = 0;
           checkTop(cursor);
         }
       }
     }
 
-    current = $(".ui-selected");
+    current = $(".xselectable-selected");
   });
 
   function indent() {
-    $(".ui-selected").each(function() {
+    $(".xselectable-selected").each(function() {
       var position = $(this).data("position");
       $(this).data("position", position + 1);
       $(this).before("<span class=\"tab\"></span>");
@@ -375,7 +401,7 @@
   }
 
   function outdent() {
-    $(".ui-selected").each(function() {
+    $(".xselectable-selected").each(function() {
       if ($(this).prev().hasClass("tab")) {
         var position = $(this).data("position");
         $(this).data("position", position - 1);
