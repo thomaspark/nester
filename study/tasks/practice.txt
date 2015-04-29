@@ -1,24 +1,37 @@
-Vegetables
-  Potatoes
-  Carrots
+For the next set of tasks, you'll be shown a piece of code
+and asked to format each line to the right level of indentation
+as accurately and quickly as possible.
 
-Fruits
+To do this, click a block of code (such as Apple)
+and then click the Indent and Unindent buttons above.
   Apple
-  Grapes
+  Banana
+  Cherry
 
-Meat
-  Chicken
-  Beef
-  Pork
-  Fish
-    Salmon
-    Tuna
+You can also select multiple blocks by dragging a box around them.
+  Date
+  Elderberry
+  Fig
 
-Drinks
-  Milk
-  Orange Juice
-  Iced Tea
-  Soda
-    Coca-Cola
-    Diet Coke
-    Mountain Dew
+You can also use your keyboard.
+Try using the up and down arrows to move between blocks,
+and the left and right arrows to unindent or indent.
+  Grape
+  Honeydew
+  Kiwi
+
+Other key commands are also available.
+Use tab and shift-tab to indent.
+Use shift with click or up/down arrow to expand your selection.
+Use control with click to add or remove a specific block from your selection.
+  Lemon
+  Mango
+  Nectarine
+
+Whether mouse or keyboard, go with whatever is comfortable for you.
+
+Click the Instructions button above to review the rules for a task.
+Click the Submit button when you've finished a task.
+If you have any errors, you'll be asked to fix them and then submit again.
+
+When you're ready to start the tasks, close this tab and start with Task 1.
