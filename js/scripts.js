@@ -6,6 +6,7 @@
   var current = $(".ui-selected");
   var lassoed = [];
   var startTime;
+  var operations = [];
   var attempt = 0;
 
   $.ajax({
@@ -56,14 +57,17 @@
 
   $(".indent").click(function() {
     indent();
+    operations.push("button indent");
   });
 
   $(".outdent").click(function() {
     outdent();
+    operations.push("button unindent");
   });
 
   $(".instructions").click(function() {
     $("#instructions-modal").fadeIn();
+    operations.push("button instructions");
   });
 
   $(".close").click(function() {
@@ -149,10 +153,12 @@
     record.set('missed', missedDirection);
     record.set('solution', solution);
     record.set('answer', answer);
+    record.set('operations', operations);
     record.save();
 
 
     $("#score").empty();
+    operations = [];
 
     if (missedDirection > 0) {
       $("#score").append("<p><i class='fa fa-exclamation-triangle'></i></p><h2>You have one or more errors.</h2><p>Find and correct them.</p>");
@@ -184,7 +190,29 @@
       lassoed.pop();
       cursor = $(ui.unselecting).data("line");
     },
-    stop: function() {
+    stop: function(e, ui) {
+      if (lassoed.length == 1) {
+        if (e.shiftKey) {
+          operations.push("shift-click");
+        } else if (e.metaKey) {
+          operations.push("command-click");
+        } else if (e.ctrlKey) {
+          operations.push("control-click");
+        } else {
+          operations.push("click");
+        }
+      } else {
+        if (e.shiftKey) {
+          operations.push("shift-drag " + lassoed.length);
+        } else if (e.metaKey) {
+          operations.push("command-drag " + lassoed.length);
+        } else if (e.ctrlKey) {
+          operations.push("control-drag " + lassoed.length);
+        } else {
+        operations.push("drag " + lassoed.length);
+        }
+      }
+
       if (lassoed.length == 1) {
         anchor = cursor = lassoed.pop();
       } else if (lassoed.length > 1) {
@@ -205,16 +233,38 @@
       // shift-tab or left arrow or delete
       e.preventDefault();
       outdent();
+
+      if (e.which == 9) {
+        operations.push("key shift-tab");
+      } else {
+        operations.push("key left-arrow");
+      }
     } else if (e.which == 9 || e.which == 39 || e.which == 32) {
       // tab or right arrow or space
       e.preventDefault();
       indent();
+
+      if (e.which == 9) {
+        operations.push("key tab");
+      } else if (e.which == 39) {
+        operations.push("key right-arrow");
+      } else {
+        operations.push("key space");
+      }
     } else if (e.which == 27 || (e.which == 68 && e.ctrlKey) || (e.which == 68 && e.metaKey)) {
       // escape or ctrl-d or command-d
 
       e.preventDefault();
       cursor = anchor = null;
       $(".ui-selected").removeClass("ui-selected");
+
+      if (e.which == 27) {
+        operations.push("key escape");
+      } else if (e.ctrlKey) {
+        operations.push("key control-d");
+      } else {
+        operations.push("key command-d");
+      }
     } else if ((e.which == 65 && e.ctrlKey) || (e.which == 65 && e.metaKey)) {
       // ctrl-a or command-a
 
@@ -222,6 +272,12 @@
       anchor = 0;
       cursor = $(".block").length - 1;
       $(".block").addClass("ui-selected");
+
+      if (e.ctrlKey) {
+        operations.push("key control-a");
+      } else {
+        operations.push("key command-a");
+      }
     } else if (e.which == 38) {
       // up arrow
       e.preventDefault();
@@ -230,6 +286,8 @@
       last = $(".ui-selected").last().data("line");
 
       if (e.shiftKey) {
+
+        operations.push("key shift-up-arrow");
 
         if (cursor <= anchor) {
           if (cursor > 0) {
@@ -243,6 +301,9 @@
           checkTop(cursor);
         }
       } else {
+
+        operations.push("key up-arrow");
+
         if ($(".ui-selected").length) {
           $(".ui-selected").removeClass("ui-selected");
 
@@ -266,6 +327,9 @@
       last = $(".ui-selected").last().data("line");
 
       if (e.shiftKey) {
+
+        operations.push("key shift-down-arrow");
+
         if (cursor >= anchor) {
           if (cursor < $(".block").length) {
             cursor = cursor + 1;
@@ -278,6 +342,9 @@
           checkTop(cursor);
         }
       } else {
+
+        operations.push("key down-arrow");
+
         if ($(".ui-selected").length) {
           $(".ui-selected").removeClass("ui-selected");
 
