@@ -26,7 +26,8 @@
   var tasks = ["html.html", "xml.xml", "latex.tex", "scss.scss", "json.json", "js.js", "lisp.lisp"].shuffle();
 
   tasks.forEach(function(value, index) {
-    var link = $("<a></a>").attr({"href": "../?task=" + value + "&p=" + p, "target": "_blank"}).text("Task " + parseInt(index+1, 10));
+    var lang = value.split(".")[0];
+    var link = $("<a></a>").attr({"href": "../?task=" + value + "&p=" + p, "target": "_blank"}).text("Task " + parseInt(index+1, 10) + " - " + lang);
     link = $("<li></li>").append(link);
     $("#tasks").append(link);
   });
