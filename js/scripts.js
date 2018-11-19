@@ -141,22 +141,6 @@
 
     var score = 100 * (total - missedDirection - (0.5 * (missedRelative - missedDirection))) / total;
 
-    Parse.initialize("ZnD1UEJA3BdRNhaAJ6awIcbR6CC9TtQ1rwxUYVRh","JkbOI0eiIKdoxmcSTTj5RrpfvvtPwnf8PuOz3VCD");
-
-    var Record = Parse.Object.extend("Record");
-    var record = new Record();
-    record.set('participant', p);
-    record.set('task', task);
-    record.set('lines', total);
-    record.set('time', time/1000);
-    record.set('attempt', attempt);
-    record.set('missed', missedDirection);
-    record.set('solution', solution);
-    record.set('answer', answer);
-    record.set('operations', operations);
-    record.save();
-
-
     $("#score").empty();
     operations = [];
 
